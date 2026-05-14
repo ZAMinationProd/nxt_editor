@@ -5,7 +5,7 @@ import webbrowser
 from functools import partial
 
 # External
-from qtpy import QtCore, QtGui, QtWidgets
+from Qt import QtCore, QtGui, QtWidgets
 
 # Internal
 from . import DIRECTIONS

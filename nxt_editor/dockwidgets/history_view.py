@@ -2,7 +2,7 @@
 import logging
 
 # External
-from qtpy import QtWidgets
+from Qt import QtWidgets
 
 # Internal
 import nxt_editor

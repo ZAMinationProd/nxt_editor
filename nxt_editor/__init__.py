@@ -4,7 +4,7 @@ import logging
 import sys
 
 # External
-from qtpy import QtCore, QtWidgets, QtGui
+from Qt import QtCore, QtWidgets, QtGui
 
 # Internal
 import nxt

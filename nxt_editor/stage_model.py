@@ -8,9 +8,8 @@ import pickle
 import sys
 
 # External
-from qtpy import QtWidgets
-from qtpy import QtCore
-from qtpy import QtGui
+from Qt import QtWidgets
+from Qt import QtCore
 
 # Internal
 from nxt import clean_json, nxt_io
@@ -3355,7 +3354,7 @@ class StageModel(QtCore.QObject):
         QtCore.QCoreApplication.processEvents()
 
 
-class NxtUndoStack(QtGui.QUndoStack):
+class NxtUndoStack(QtWidgets.QUndoStack):
 
     def push(self, command):
         """Simple overload of push method, checks that the target layer of the given command's model is *not* locked.

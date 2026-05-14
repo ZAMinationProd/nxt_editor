@@ -1,6 +1,6 @@
 # External
-from qtpy.QtCore import QRegularExpression
-from qtpy.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter
+from Qt.QtCore import QRegExp
+from Qt.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter
 # Internal
 from nxt import tokens
 
@@ -55,8 +55,8 @@ class PythonHighlighter(QSyntaxHighlighter):
         # Multi-line strings (expression, flag, style)
         # FIXME: The triple-quotes in these two lines will mess up the
         # syntax highlighting from this point onward
-        self.tri_single = (QRegularExpression("'''"), 1, self.lookup('string2'))
-        self.tri_double = (QRegularExpression('"""'), 2, self.lookup('string2'))
+        self.tri_single = (QRegExp("'''"), 1, self.lookup('string2'))
+        self.tri_double = (QRegExp('"""'), 2, self.lookup('string2'))
 
         rules = []
 
@@ -96,7 +96,7 @@ class PythonHighlighter(QSyntaxHighlighter):
             (r'\b[+-]?[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?\b', 0, self.lookup('numbers')),
         ]
 
-        # Build a QRegularExpression for each pattern
+        # Build a QRegExp for each pattern
         special_rules = [
             # tokens.TOKEN_PREFIX
             (r'\$\{[\w\./:\$\{]*\}', 0, self.lookup('${}')),
@@ -104,12 +104,12 @@ class PythonHighlighter(QSyntaxHighlighter):
         ]
         self.rules = []
         for (pat, index, fmt) in rules:
-            self.rules.append((QRegularExpression(pat), index, fmt))
+            self.rules.append((QRegExp(pat), index, fmt))
         # Rules that need more than regex to work
         self.special_rules = []
         for (pat, index, fmt) in special_rules:
-            self.rules.append((QRegularExpression(pat), index, fmt))
-            self.special_rules.append((QRegularExpression(pat), index, fmt))
+            self.rules.append((QRegExp(pat), index, fmt))
+            self.special_rules.append((QRegExp(pat), index, fmt))
 
     def highlightBlock(self, text):
         """Apply syntax highlighting to the given block of text.
@@ -141,7 +141,7 @@ class PythonHighlighter(QSyntaxHighlighter):
 
     def match_multiline(self, text, delimiter, in_state, style):
         """Do highlighting of multi-line strings. ``delimiter`` should be a
-        ``QRegularExpression`` for triple-single-quotes or triple-double-quotes, and
+        ``QRegExp`` for triple-single-quotes or triple-double-quotes, and
         ``in_state`` should be a unique integer to represent the corresponding
         state changes when inside those strings. Returns True if we're still
         inside a multi-line string when this function is finished.

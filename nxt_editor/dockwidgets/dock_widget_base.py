@@ -3,8 +3,8 @@ import re
 import logging
 
 # External
-from qtpy import QtCore
-from qtpy.QtWidgets import QDockWidget
+from Qt import QtCore
+from Qt.QtWidgets import QDockWidget
 
 # Internal
 import nxt_editor

@@ -5,9 +5,9 @@ import time
 import fnmatch
 
 # External
-from qtpy import QtWidgets
-from qtpy import QtGui
-from qtpy import QtCore
+from Qt import QtWidgets
+from Qt import QtGui
+from Qt import QtCore
 
 # Internal
 from nxt_editor.dockwidgets.dock_widget_base import DockWidgetBase

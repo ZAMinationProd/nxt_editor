@@ -30,7 +30,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     python_requires='>=3.9, <3.12',
     install_requires=['nxt-core<1.0,>=0.14',
-                      'qtpy<3',
+                      'qt.py<3',
                       'PySide6>=6,<6.8'
                       ],
     package_data={

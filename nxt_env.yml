@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11
-  - qtpy=2.4.3
+  - qt.py=1.4
   - pyside6=6.7
   - twine
   - requests

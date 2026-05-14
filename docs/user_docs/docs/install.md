@@ -126,7 +126,7 @@ Copy the following code into Maya and edit  `NXT_PATH` and `ENV_PATH` to reflect
         sys.path.append(os.path.expanduser(ENV_PATH))
     if NXT_PATH not in sys.path:
         sys.path.append(os.path.expanduser(NXT_PATH))
-    from qtpy import QtCore
+    from Qt import QtCore
     import nxt_editor.main_window
     instance = nxt_editor.main_window.main_window.MainWindow(filepath=LAUNCH_FILE)
     if sys.platform == 'win32':

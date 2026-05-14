@@ -2,7 +2,7 @@
 import logging
 
 # External
-from qtpy import QtWidgets, QtGui, QtCore
+from Qt import QtWidgets, QtGui, QtCore
 
 # Internal
 import nxt_editor
@@ -327,7 +327,7 @@ class HotkeyModel(QtCore.QAbstractTableModel):
             self.parent.savable.emit(True)
         else:
             self.parent.savable.emit(False)
-        self.view.update(index)
+        self.view.update()
         return value_set
 
     def flags(self, index):
@@ -415,10 +415,10 @@ class KeySequenceEdit(QtWidgets.QLineEdit):
             logger.error("Unknown key from a macro probably")
             return
         event_modifiers = event.modifiers()
-        modifier_key_map = {QtCore.Qt.Key_Control: QtCore.Qt.CTRL.value,
-                         QtCore.Qt.Key_Shift: QtCore.Qt.SHIFT.value,
-                         QtCore.Qt.Key_Alt: QtCore.Qt.ALT.value,
-                         QtCore.Qt.Key_Meta: QtCore.Qt.META.value}
+        modifier_key_map = {QtCore.Qt.Key_Control: QtCore.Qt.CTRL,
+                         QtCore.Qt.Key_Shift: QtCore.Qt.SHIFT,
+                         QtCore.Qt.Key_Alt: QtCore.Qt.ALT,
+                         QtCore.Qt.Key_Meta: QtCore.Qt.META}
         if key in list(modifier_key_map.keys()) and not len(self.keys):
             shift_held = bool(event_modifiers & QtCore.Qt.ShiftModifier)
             ctrl_held = bool(event_modifiers & QtCore.Qt.ControlModifier)
@@ -441,14 +441,14 @@ class KeySequenceEdit(QtWidgets.QLineEdit):
             return
         else:
             if event_modifiers & QtCore.Qt.ShiftModifier:
-                key += QtCore.Qt.SHIFT.value
+                key += QtCore.Qt.SHIFT
             if event_modifiers & QtCore.Qt.ControlModifier:
-                key += QtCore.Qt.CTRL.value
+                key += QtCore.Qt.CTRL
                 self.press_count -= 1
             if event_modifiers & QtCore.Qt.AltModifier:
-                key += QtCore.Qt.ALT.value
+                key += QtCore.Qt.ALT
             if event_modifiers & QtCore.Qt.MetaModifier:
-                key += QtCore.Qt.META.value
+                key += QtCore.Qt.META
 
             self.keys.add(key)
         if len(self.keys) > 4:

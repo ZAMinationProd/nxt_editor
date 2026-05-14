@@ -4,7 +4,7 @@ import logging
 import time
 
 # External
-from qtpy.QtWidgets import QUndoCommand
+from Qt.QtWidgets import QUndoCommand
 
 # Internal
 from nxt_editor import colors

@@ -5,9 +5,9 @@ import logging
 from functools import partial
 
 # External
-from qtpy import QtWidgets
-from qtpy import QtGui
-from qtpy import QtCore
+from Qt import QtWidgets
+from Qt import QtGui
+from Qt import QtCore
 try:
     QtCore.QStringListModel
 except AttributeError:
