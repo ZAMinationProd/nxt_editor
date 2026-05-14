@@ -5,7 +5,7 @@ import os
 import sys
 
 # External
-from Qt import QtWidgets
+from qtpy import QtWidgets
 
 # Internal
 from nxt import nxt_path

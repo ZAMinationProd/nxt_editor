@@ -3,9 +3,9 @@ import logging
 from functools import partial
 
 # External
-from Qt import QtWidgets
-from Qt import QtGui
-from Qt import QtCore
+from qtpy import QtWidgets
+from qtpy import QtGui
+from qtpy import QtCore
 
 # Internal
 from nxt_editor.dockwidgets.dock_widget_base import DockWidgetBase

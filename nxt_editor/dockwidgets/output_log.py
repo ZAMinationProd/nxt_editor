@@ -7,7 +7,7 @@ import os
 import time
 
 # External
-from Qt import QtWidgets, QtGui, QtCore
+from qtpy import QtWidgets, QtGui, QtCore
 
 # Internal
 import nxt_editor

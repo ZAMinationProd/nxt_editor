@@ -1,6 +1,6 @@
 import os
 
-from Qt import QtCore, QtWidgets, QtGui
+from qtpy import QtCore, QtWidgets, QtGui
 
 
 class SearchLineEdit(QtWidgets.QLineEdit):

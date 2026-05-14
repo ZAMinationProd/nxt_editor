@@ -52,7 +52,7 @@
             "code": [
                 "if not STAGE.app:", 
                 "    import sys", 
-                "    from Qt import QtWidgets", 
+                "    from qtpy import QtWidgets",
                 "    try:    ", 
                 "        STAGE.app = QtWidgets.QApplication(sys.argv)", 
                 "    except RuntimeError:", 

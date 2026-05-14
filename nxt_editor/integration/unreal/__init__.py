@@ -4,7 +4,7 @@ import atexit
 
 # External
 import unreal
-from Qt import QtWidgets
+from qtpy import QtWidgets
 
 # Internal
 from nxt.constants import NXT_DCC_ENV_VAR

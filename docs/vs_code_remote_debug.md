@@ -33,8 +33,8 @@ Edit the two paths to reflect your environment.
     LAUNCH_FILE = 'Z:/vscode/nxt/templates/face/face_variant_x.json'
     sys.path.append(NXT_PATH)
     sys.path.append(ENV_PATH)
-    from Qt import QtCompat
-    from Qt import QtWidgets
+    from qtpy from QtCompat
+    from qtpy import QtWidgets
     import nxt.ui.main_window
     reload(nxt.ui.main_window)
     import maya.OpenMayaUI as mui

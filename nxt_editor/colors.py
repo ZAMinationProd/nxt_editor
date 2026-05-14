@@ -1,7 +1,7 @@
 # Builtin
 import logging
 # External
-from Qt.QtGui import QColor
+from qtpy.QtGui import QColor
 # Internal
 from nxt.nxt_log import GRAPHERROR, NODEOUT, EXECINFO, COMPINFO
 

@@ -2,7 +2,7 @@
 import os
 import json
 # External
-from Qt import QtGui, QtWidgets
+from qtpy import QtGui, QtWidgets
 # Internal
 from nxt.constants import USER_DIR
 

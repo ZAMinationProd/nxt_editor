@@ -1,5 +1,5 @@
 # External
-from Qt import QtWidgets, QtGui, QtCore
+from qtpy import QtWidgets, QtGui, QtCore
 
 
 class OpinionDots(QtWidgets.QWidget):

@@ -2,7 +2,7 @@
 from functools import partial
 
 # External
-from Qt import QtWidgets, QtGui, QtCore
+from qtpy import QtWidgets, QtGui, QtCore
 
 # Internal
 from nxt.nxt_path import NODE_SEP

@@ -7,9 +7,9 @@ except ImportError:
     from collections import Iterable
 
 # External
-from Qt import QtWidgets
-from Qt import QtGui
-from Qt import QtCore
+from qtpy import QtWidgets
+from qtpy import QtGui
+from qtpy import QtCore
 # Maya fix
 try:
     QtCore.QStringListModel

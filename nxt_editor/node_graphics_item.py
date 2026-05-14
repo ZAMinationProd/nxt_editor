@@ -6,9 +6,9 @@ import sys
 from collections import OrderedDict
 
 # External
-from Qt import QtWidgets
-from Qt import QtGui
-from Qt import QtCore
+from qtpy import QtWidgets
+from qtpy import QtGui
+from qtpy import QtCore
 # Internal
 import nxt_editor
 from nxt import nxt_path, nxt_node
@@ -254,7 +254,11 @@ class NodeGraphicsItem(QtWidgets.QGraphicsObject):
         """Override of QtWidgets.QGraphicsItem itemChange."""
         # keep connections drawing to node as it moves
         if change is QtWidgets.QGraphicsItem.ItemPositionChange:
+            children_paths = self.model.get_children(self.node_path, ordered=True,
+                                                     include_implied=True)
             graphics = self.view.get_node_connection_graphics(self.node_path)
+            for child_path in children_paths:
+                graphics.extend(self.view.get_node_connection_graphics(child_path))
             for connection in graphics:
                 connection.rebuild_line()
         # TODO: Take into account the positions of every selected node and snap them all to a grid as soon as

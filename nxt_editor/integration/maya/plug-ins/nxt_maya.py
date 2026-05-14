@@ -14,7 +14,7 @@ import os
 from maya import cmds
 from maya import mel
 import maya.api.OpenMaya as om
-from Qt import QtCore
+from qtpy import QtCore
 
 # Internal
 import nxt_editor.main_window

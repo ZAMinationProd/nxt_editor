@@ -3,7 +3,7 @@ import logging
 import time
 
 # External
-from Qt import QtWidgets, QtGui, QtCore
+from qtpy import QtWidgets, QtGui, QtCore
 
 # Internal
 from nxt_editor.dockwidgets.dock_widget_base import DockWidgetBase
