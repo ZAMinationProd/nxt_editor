@@ -254,11 +254,16 @@ class NodeGraphicsItem(QtWidgets.QGraphicsObject):
         """Override of QtWidgets.QGraphicsItem itemChange."""
         # keep connections drawing to node as it moves
         if change is QtWidgets.QGraphicsItem.ItemPositionChange:
+            graphics = self.view.get_node_connection_graphics(self.node_path)
+
             children_paths = self.model.get_children(self.node_path, ordered=True,
                                                      include_implied=True)
-            graphics = self.view.get_node_connection_graphics(self.node_path)
-            for child_path in children_paths:
+            while children_paths:
+                child_path = children_paths.pop(0)
                 graphics.extend(self.view.get_node_connection_graphics(child_path))
+                children_paths.extend(self.model.get_children(child_path, ordered=True,
+                                                 include_implied=True))
+
             for connection in graphics:
                 connection.rebuild_line()
         # TODO: Take into account the positions of every selected node and snap them all to a grid as soon as
