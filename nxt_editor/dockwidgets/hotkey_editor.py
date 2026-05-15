@@ -327,7 +327,7 @@ class HotkeyModel(QtCore.QAbstractTableModel):
             self.parent.savable.emit(True)
         else:
             self.parent.savable.emit(False)
-        self.view.update()
+        self.view.update(index)
         return value_set
 
     def flags(self, index):
@@ -415,10 +415,10 @@ class KeySequenceEdit(QtWidgets.QLineEdit):
             logger.error("Unknown key from a macro probably")
             return
         event_modifiers = event.modifiers()
-        modifier_key_map = {QtCore.Qt.Key_Control: QtCore.Qt.CTRL,
-                         QtCore.Qt.Key_Shift: QtCore.Qt.SHIFT,
-                         QtCore.Qt.Key_Alt: QtCore.Qt.ALT,
-                         QtCore.Qt.Key_Meta: QtCore.Qt.META}
+        modifier_key_map = {QtCore.Qt.Key_Control: QtCore.Qt.CTRL.value,
+                         QtCore.Qt.Key_Shift: QtCore.Qt.SHIFT.value,
+                         QtCore.Qt.Key_Alt: QtCore.Qt.ALT.value,
+                         QtCore.Qt.Key_Meta: QtCore.Qt.META.value}
         if key in list(modifier_key_map.keys()) and not len(self.keys):
             shift_held = bool(event_modifiers & QtCore.Qt.ShiftModifier)
             ctrl_held = bool(event_modifiers & QtCore.Qt.ControlModifier)
@@ -441,14 +441,14 @@ class KeySequenceEdit(QtWidgets.QLineEdit):
             return
         else:
             if event_modifiers & QtCore.Qt.ShiftModifier:
-                key += QtCore.Qt.SHIFT
+                key += QtCore.Qt.SHIFT.value
             if event_modifiers & QtCore.Qt.ControlModifier:
-                key += QtCore.Qt.CTRL
+                key += QtCore.Qt.CTRL.value
                 self.press_count -= 1
             if event_modifiers & QtCore.Qt.AltModifier:
-                key += QtCore.Qt.ALT
+                key += QtCore.Qt.ALT.value
             if event_modifiers & QtCore.Qt.MetaModifier:
-                key += QtCore.Qt.META
+                key += QtCore.Qt.META.value
 
             self.keys.add(key)
         if len(self.keys) > 4:
