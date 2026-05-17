@@ -521,8 +521,8 @@ class UnsavedChangesMessage(QtWidgets.QMessageBox):
         message.setText(header)
         info = info or 'Do you want to save your changes?'
         message.setInformativeText(info)
-        message.setStandardButtons(message.Save |
-                                   message.Discard |
-                                   message.Cancel)
-        message.setIcon(message.Warning)
+        message.setStandardButtons(message.StandardButton.Save |
+                                   message.StandardButton.Discard |
+                                   message.StandardButton.Cancel)
+        message.setIcon(message.Icon.Warning)
         return message.exec_()
